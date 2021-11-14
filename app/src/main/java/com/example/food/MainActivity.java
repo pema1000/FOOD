@@ -11,7 +11,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button GotoLoginPage,inventoryDisplay;
+    Button GotoLoginPage,inventoryDisplay, GoToRecipe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         GotoLoginPage=findViewById(R.id.homelogout);
         inventoryDisplay=findViewById(R.id.homeInventoryBtn);
+        GoToRecipe = findViewById(R.id.inventoryRecbtn);
 
         GotoLoginPage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +38,13 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
 
+        });
+
+        GoToRecipe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),Recipe.class));
+            }
         });
     }
 }
